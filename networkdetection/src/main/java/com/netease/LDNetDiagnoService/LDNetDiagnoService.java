@@ -51,6 +51,7 @@ public class LDNetDiagnoService extends
     private String _gateWay;
     private String _dns1;
     private String _dns2;
+    private String _dns3;
     private boolean _alwaysPing; //是否总是进行ping
     private InetAddress[] _remoteInet;
     private List<String> _remoteIpList;
@@ -185,6 +186,9 @@ public class LDNetDiagnoService extends
                 _netPinger.exec(_dns1, false);
                 recordStepInfo("ping本地DNS2..." + _dns2);
                 _netPinger.exec(_dns2, false);
+                if (!(_dns3 == null || _dns3.isBlank())) {
+                    _netPinger.exec(_dns3, false);   
+                }
             } else {
                 recordStepInfo("\n联网&&DNS解析成功&&connect测试成功，无需ping");
             }
@@ -409,9 +413,12 @@ public class LDNetDiagnoService extends
                 _dns1 = dnsArr[0];
                 if (dnsArr.length > 1) {
                     _dns2 = dnsArr[1];
+                        if (dnsArr.length > 2) {
+                            _dns3 = dnsArr[2];
+                        }
                 }
             }
-            recordStepInfo("本地DNS:\t" + this._dns1 + "," + this._dns2);
+            recordStepInfo("本地DNS:\t" + this._dns1 + "," + this._dns2 + "," + this._dns3);
         } else {
             recordStepInfo("本地DNS:\t" + "0.0.0.0" + "," + "0.0.0.0");
         }
