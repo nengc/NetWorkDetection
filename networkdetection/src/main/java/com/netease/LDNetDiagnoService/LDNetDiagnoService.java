@@ -186,7 +186,7 @@ public class LDNetDiagnoService extends
                 _netPinger.exec(_dns1, false);
                 recordStepInfo("ping本地DNS2..." + _dns2);
                 _netPinger.exec(_dns2, false);
-                if (!(_dns3 == null || _dns3.isBlank())) {
+                if (!(_dns3 == null || _dns3.trim().isEmpty())) 
                     _netPinger.exec(_dns3, false);   
                 }
             } else {
