@@ -187,6 +187,7 @@ public class LDNetDiagnoService extends
                 recordStepInfo("ping本地DNS2..." + _dns2);
                 _netPinger.exec(_dns2, false);
                 if (!(_dns3 == null || _dns3.trim().isEmpty())) {
+                     recordStepInfo("ping本地DNS3..." + _dns3);
                     _netPinger.exec(_dns3, false);   
                 }
             } else {
@@ -409,6 +410,7 @@ public class LDNetDiagnoService extends
         // 获取本地DNS地址
         if (_isNetConnected) {
             String[] dnsArr = LDNetUtil.getLocalDns(_context);
+            recordStepInfo("原始DNS:\t" + String.join(",", dnsArr));
             if (dnsArr != null && dnsArr.length > 0) {
                 _dns1 = dnsArr[0];
                 if (dnsArr.length > 1) {
