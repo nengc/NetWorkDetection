@@ -413,9 +413,9 @@ public class LDNetDiagnoService extends
                 _dns1 = dnsArr[0];
                 if (dnsArr.length > 1) {
                     _dns2 = dnsArr[1];
-                        if (dnsArr.length > 2) {
-                            _dns3 = dnsArr[2];
-                        }
+                    if (dnsArr.length > 2) {
+                        _dns3 = dnsArr[2];
+                    }
                 }
             }
             recordStepInfo("本地DNS:\t" + this._dns1 + "," + this._dns2 + "," + this._dns3);
